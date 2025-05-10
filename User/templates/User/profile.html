@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<script>
+
+
+</script>
+
+<p  id="pageIAHWS1">
+
+ {% if request.user.is_authenticated %}
+
+    <div class ="container pt-3 border bg-light text-dark" >
+
+        <h4 class="marbotFix2"><i class= "fa fa-envelope "></i><u class="ml-2" >email</u></h4>
+
+         <p>your email address  :{{ request.user.email }} <a href="#" class="ml-2">Change email</a></p>
+
+    </div>
+
+    <br>
+
+    <div class ="container pt-3 border bg-light text-dark">
+
+        <h4 class="marbotFix2"><u class="ml-2" >Password Change</u></h4>
+
+        <p><a href="{% url 'password_change' %}">Change Password</a></p>
+
+    </div>
+
+    <br>
+
+    <div class ="container pt-3 border bg-light text-dark">
+
+      <h4 class="marbotFix2">Trainings Booked</h4>
+
+        <table class="table table-hover">
+
+            <thead>
+
+            <tr>
+
+                <th>Training title</th>
+
+                <th>Training booked date</th>
+
+                <th>Payment ID</th>
+
+                <th>Cancel</th>
+
+                <th>user</th>
+
+            </tr>
+
+            </thead>
+
+        <tbody>
+
+
+            <!--<form action="trainingdetails" method="post">
+
+                {% csrf_token %}-->
+
+            {% for trg in userobj %}
+
+            <tr>
+
+              {% if trg.Requesteduser == request.user.username %}
+
+                <td>{{trg.RequestedTrainings}}</td>
+
+                <td>{{trg.created}}</td>
+
+                <td>{{trg.PaymentID}}</td>
+
+                <td>
+
+                <form action = "{% url 'Cancelpay' trg.id  %}">
+
+                        <button class="btn btn-primary btn-sm" type="submit">Cancel</button>
+
+                </form>
+
+                </td>
+
+                <td>{{trg.Requesteduser}}</td>
+
+                {% endif %}
+
+            </tr>
+
+            {% endfor %}
+
+            <!--  <input type="submit" value="Submit"/>
+
+          </form>-->
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+</p>
+
+{% endif %}
+
+{% endblock %}
+

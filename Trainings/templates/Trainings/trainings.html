@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p id="pageIAHWS1">
+
+    <div class="container">
+
+        <h2 class="marbotFix2">Training Schedule</h2>
+
+        <table class="table table-hover">
+
+            <thead>
+
+            <tr>
+
+                <th>Training Code</th>
+
+                <th>Training Name</th>
+
+                <th>Duration</th>
+
+                <th>Starting Date</th>
+
+                <th>Ending Date</th>
+
+                <th>Training Cost</th>
+
+                <th>Vacancy Available</th>
+
+                <th>Request Training</th>
+
+            </tr>
+
+            </thead>
+
+            <tbody>
+
+
+            <!--<form action="trainingdetails" method="post">
+
+                {% csrf_token %}-->
+
+            {% for trg in trgsch %}
+
+            <tr>
+
+                <td>{{ trg.Trainingcode }}</td>
+
+                <td>{{ trg.Trainingtitle }}</td>
+
+                <td>{{ trg.Trainingduration }}</td>
+
+                <td>{{ trg.Trainingstart }}</td>
+
+                <td>{{ trg.Trainingend }}</td>
+
+                <td>{{ trg.Trainingcost }}</td>
+
+                <td>{{ trg.Trainingvacancy }}</td>
+
+                
+
+                <td>
+
+                    <form action="{% url 'payment' trg.id  %}">
+
+                        <button class="btn btn-primary btn-sm" type="submit">select</button>
+
+                    </form>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+            <!--  <input type="submit" value="Submit"/>
+
+          </form>-->
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</p>
+
+{% endblock %}

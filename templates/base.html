@@ -1,0 +1,54 @@
+{% load static %}
+
+
+<html lang="en">
+
+
+<header>
+
+
+</header>
+
+
+<body>
+
+   {% include "Header/head.html" %}
+
+    <div id="pageIAHWS" class="d-flex justify-content-around bg-teal mb-3">
+
+        <h6 id="marbotFix1" ><i class="fa fa-mobile"></i>+91 9591155711</h6>
+
+        <h3 id="marbotFix5" style=color:#8B0000 >Sukhith <span style=color:#0000CD>Technologies</span></h3>
+
+        {% if request.user.is_authenticated %}
+
+           <span> Hello! {{ request.user }} </span>
+
+        {% endif %}
+
+        <a  style="color:#0000CD" href="mailto:sukhithtechnologies@gmail.com"><i class="fa fa-envelope"></i><u>Sukhith Technologies</u></a>
+
+    </div>
+
+    {% include "Menus/menu.html" %}
+
+    {% block content1 %}
+
+    {% endblock %}
+
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+
+
+<footer>
+
+    {% include "Footer/footer.html" %}
+
+</footer>
+
+
+</html>
+
