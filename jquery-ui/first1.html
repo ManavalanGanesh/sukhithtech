@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>Set up jquery</title>
+        <link rel ="Stylesheet" href="css/style.css">
+        <link rel ="Stylesheet" href="jquery-ui/jquery-ui.css">
+        <link rel ="Stylesheet" href="jquery-ui/jquery-ui.structure.css">
+        <link rel ="Stylesheet" href="jquery-ui/jquery-ui.theme.css">
+        
+    </head>
+
+    <body>
+
+        <div id="title" title="Sukhith Technologies" class="cube">
+             <h2>Welcome to Sukhith Technologies<i><sub>Technology Experts</sub> </i></h2>
+    </div>
+        <img id="resize" src="/images/img01.jpg">
+    <div>
+        <p id="para1">This is a technology consultant and technical training expert company.
+            Expert knowledge in electronics, software and mechanical mainly catering 
+            to automotive, industrial automation and avionics domains. We possess rich 
+            working experience in the domains mentioned above.</p>
+        <br>
+            <P>
+            We are more then happy to provide consultancy services in the following 
+            electronic systems:
+            design and developement of ECUs in both automotive and avionics domains, PLCs and drives in the industrial 
+            automation.
+            Software:
+            We also provide consultancy services in design and developement of software.
+            Training services:
+            Mostly in the sotware languages such as assembly, c, c++, Java and python
+            Also real-time os, design of embedded real-time systems etc.,
+        </p>
+    </div>
+    
+    <ul id="menu">
+            
+        <li><div>Embedded</div>
+          <ul>
+            <li><div>Industrial Automation</div>
+              <ul>
+                <li><div>Hardware services</div></li>
+                <li><div>Software services</div></li>
+                <li><div>Training services</div></li>
+                <li><div>Industry4.0</div></li>
+              </ul>
+            </li>
+            <li><div>Avionics</div>
+              <ul>
+                <li><div>Hardware services</div></li>
+                <li><div>Software services</div></li>
+                <li><div>Training< Services/div></li>
+              </ul>
+            </li>
+            <li><div>Automotive</div>
+                <ul>
+                  <li><div>Hardware services</div></li>
+                  <li><div> Services</div></li>
+                  <li><div>Training services</div></li>
+                  <li><div>Functional </div></li>
+                </ul>
+              </li>
+            
+          </ul>
+        </li>
+        
+        <li><div>Non Embedded</div>
+            <ul>
+                <li><div>Mobile App dev services</div></li>
+                <li><div>Website dev services</div></li>
+              </ul>
+            </li>
+      </ul>
+
+        
+    </body>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="jquery-ui/jquery-ui.js" type="text/javascript"></script>"
+    
+    <script>
+        $( function() {
+          $( "#menu" ).menu();
+        } );
+    </script>
+    <style>
+        .ui-menu { width: 150px; }
+    </style>
+    <script>
+
+  var c2=true;
+   function car(car_brand,car_modal,car_price){
+    this.car_brand=car_brand;
+    this.car_modal=car_modal;
+    this.car_price=car_price;
+   }
+   var c1=new car("Tesla","model 1","35000");
+   document.write(typeof(c2));
+    </script>
+</html>

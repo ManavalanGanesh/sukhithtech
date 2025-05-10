@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="d-flex justify-content-center" id="pageIAHWS1">
+
+
+    <div class="Container border p-3 my-3 bg-light text-dark">
+
+        <div class="fullfaq">
+
+            <div class="fullfaq1"><strong>Development Services - Website Design:</strong></div>
+
+        </div>
+
+        <button class="questions">Static webpage</button>
+
+        <p class="content">
+
+            <br/>Webpage development using JS/HTML<br/>
+
+        </p>
+
+        <button class="questions">Dynamic webpage</button>
+
+        <p class="content">
+
+            <br/>Webpage development using JS/django/python<br/>
+
+        </p>
+
+    </div>
+
+
+    <div class="Container border p-3 my-3 bg-light text-dark">
+
+        <div class="fullfaq">
+
+            <div class="fullfaq1"><strong>Training Services - Website Design:</strong></div>
+
+        </div>
+
+        <button class="questions">Static webpage</button>
+
+        <p class="content">
+
+            <br/>Overview of static website development<br/>
+
+        </p>
+
+        <button class="questions">Dynamic webpage</button>
+
+        <p class="content">
+
+            <br/>Overview of dynamic website with Django and python<br/>
+
+        </p>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+    var coll = document.getElementsByClassName("questions");
+
+    var i;
+
+
+    for (i = 0; i < coll.length; i++) {
+
+        coll[i].addEventListener("click", function () {
+
+            this.classList.toggle("active");
+
+            var content = this.nextElementSibling;
+
+            if (content.style.maxHeight) {
+
+                content.style.maxHeight = null;
+
+            } else {
+
+                content.style.maxHeight = content.scrollHeight + "px";
+
+            }
+
+        });
+
+    }
+
+
+</script>
+
+{% endblock %}

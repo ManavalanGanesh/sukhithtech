@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="d-flex justify-content-center" id="pageIAHWS1">
+
+
+    <div class="Container d-inline border p-3 my-3 bg-light text-dark">
+
+
+        <div class="fullfaq">
+
+            <div class="fullfaq1"><strong>Development Services - Automotive:</strong></div>
+
+        </div>
+
+            <button class="questions">Hardware/Software design</button>
+
+            <p class="content"><br/>
+
+                1: Creation of Functional Architectures<br/>
+
+                2: Design and implementation of engine function software<br/>
+
+                3: Design and implementation of vehicle function software<br/>
+
+                4: Design and implementation of base software<br/>
+
+                5: Design and implementation of communication protocols such as I2C, SPI, Modbus, Ethernet etc.,<br/>
+
+                6: Design and implementation of driver software for sensors and actuators<br/>
+
+                7: Design and implementation of OBD II
+
+            </p>
+
+
+
+        <button class="questions">ISO 26262 System Analysis</button>
+
+
+        <p class="content"><br/>
+
+            1: System Architecture<br/>
+
+            2: FDA<br/>
+
+            3: FMEA<br/>
+
+            4: FSRS<br/>
+
+            5: TC<br/>
+
+            6: TR<br/>
+
+        </p>
+
+    </div>
+
+
+    <div class="Container d-inline border p-3 my-3 bg-light text-dark">
+
+        <div class="fullfaq">
+
+            <div class="fullfaq1"><strong>Training Services - Automotive:</strong></div>
+
+        </div>
+
+            <button class="questions">ISO 26262 related Trainings</button>
+
+            <p class="content"><br/>
+
+                1: Overview on ISO STD 26262<br/>
+
+                2: Functional safety compliance analysis activities<br/>
+
+            </p>
+
+
+
+        <button class="questions">Gasoline/Diesel overview Trainings</button>
+
+        <p class="content"><br/>
+
+            1: Gasoline and Diesel engine functions<br/>
+
+            2: Communication protocols basics<br/>
+
+            3: Sensors and Actuators <br/>
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+<!-- JAVASCRIPT          -->
+
+<script>
+
+    var coll = document.getElementsByClassName("questions");
+
+    var i;
+
+
+    for (i = 0; i < coll.length; i++) {
+
+        coll[i].addEventListener("click", function () {
+
+            this.classList.toggle("active");
+
+            var content = this.nextElementSibling;
+
+            if (content.style.maxHeight) {
+
+                content.style.maxHeight = null;
+
+            } else {
+
+                content.style.maxHeight = content.scrollHeight + "px";
+
+            }
+
+        });
+
+    }
+
+
+</script>
+
+
+{% endblock %}
+
+
+
+
+
+

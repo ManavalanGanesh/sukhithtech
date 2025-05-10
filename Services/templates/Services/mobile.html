@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="d-flex justify-content-center" id="pageIAHWS1">
+
+
+    <div class="Container d-inline border p-3 my-3 bg-light text-dark">
+
+        <div class="fullfaq">
+
+            <div class="fullfaq1"><strong>Development Services - Mobile App Development:</strong></div>
+
+        </div>
+
+        <button class="questions">Android based APP</button>
+
+        <p class="content">
+
+            <br/>Design of mobile phone application using Android operating system <br/>
+
+        </p>
+
+
+    </div>
+
+    <div class="Container d-inline  border p-3 my-3 bg-light text-dark">
+
+        <div class="fullfaq">
+
+            <div class="fullfaq1"><strong>Training Services - Mobile App Design:</strong></div>
+
+        </div>
+
+
+        <button class="questions">Android based App</button>
+
+        <p class="content">
+
+            <br/>Overview of mobile phone application development using android studio<br/>
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+<style>
+
+
+</style>
+
+
+<!-- JAVASCRIPT          -->
+
+<script>
+
+    var coll = document.getElementsByClassName("questions");
+
+    var i;
+
+
+    for (i = 0; i < coll.length; i++) {
+
+        coll[i].addEventListener("click", function () {
+
+            this.classList.toggle("active");
+
+            var content = this.nextElementSibling;
+
+            if (content.style.maxHeight) {
+
+                content.style.maxHeight = null;
+
+            } else {
+
+                content.style.maxHeight = content.scrollHeight + "px";
+
+            }
+
+        });
+
+    }
+
+
+
+</script>
+
+{% endblock %}

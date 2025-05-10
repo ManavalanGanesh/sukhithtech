@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<div class="d-flex justify-content-center" id="pageIAHWS1">
+
+    <div class="Container d-inline border p-3 my-3 bg-light text-dark">
+
+        <div class="fullfaq">
+
+            <div class="fullfaq1"><strong>Development Services - Industrial Automation:</strong></div>
+
+        </div>
+
+
+
+        <button class="questions">Industry4.0</button>
+
+        <p class="content">
+
+
+            <br/>1. Consultation on Industry 4.0 implementation<br/>
+
+            2. Cloud/onpremise server installation<br/>
+
+            3. Supply chain tracking through RFID<br/>
+
+            4. Process automation<br/>
+
+            5. Production tracking<br/>
+
+            6. Employees skill development<br/>
+
+            7. PLM
+
+        </p>
+
+
+        <button class="questions">PLC Programming</button>
+
+        <p class="content">
+
+            <br/>Design and implementation of process automation with different programming languages<br/>
+
+        </p>
+
+        <button class="questions">Controller Programming</button>
+
+        <p class="content">
+
+            <br/>Design and implementation of controller programming using mint language for process automation<br/>
+
+        </p>
+
+        <button class="questions">Servo motor drive programming</button>
+
+        <p class="content">
+
+            <br/>Design and implementation software functions using mint language and configuration of servo drives<br/>
+
+        </p>
+
+        <button class="questions">HMI Programming</button>
+
+        <p class="content">
+
+            <br/>Design of scala functions, interfacing and scripting services<br/>
+
+        </p>
+
+
+        <button class="questions">Sliding Headstock of Automating machines</button>
+
+        <p class="content">
+
+            <br/>CAM design, tool design and trouble shooting<br/>
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="Container d-inline border p-3 my-3 bg-light text-dark">
+
+        <div class="fullfaq">
+
+            <div class="fullfaq1"><strong>Training Services - Industrial Automation:</strong></div>
+
+        </div>
+
+
+
+        <button class="questions">Industry4.0</button>
+
+        <p class="content">
+
+            <br/>Industry 4.0 Overview<br/>
+
+        </p>
+
+        <button class="questions">PLC Programming</button>
+
+        <p class="content">
+
+            <br/>Complete overview of PLC programming and configuration<br/>
+
+        </p>
+
+        <button class="questions">Controller Programming</button>
+
+        <p class="content">
+
+            <br/>Complete overview of programming using mint language, configuration and interfacing<br/>
+
+        </p>
+
+        <button class="questions">Servo motor drive programming</button>
+
+        <p class="content">
+
+            <br/>Complete overview of servo drive programming and configuration<br/>
+
+        </p>
+
+        <button class="questions">HMI Programming</button>
+
+        <p class="content">
+
+            <br/>Scala and automation of HMI through scripting<br/>
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+<style>
+
+
+</style>
+
+
+<!-- JAVASCRIPT          -->
+
+<script>
+
+    var coll = document.getElementsByClassName("questions");
+
+    var i;
+
+
+    for (i = 0; i < coll.length; i++) {
+
+        coll[i].addEventListener("click", function () {
+
+            this.classList.toggle("active");
+
+            var content = this.nextElementSibling;
+
+            if (content.style.maxHeight) {
+
+                content.style.maxHeight = null;
+
+            } else {
+
+                content.style.maxHeight = content.scrollHeight + "px";
+
+            }
+
+        });
+
+    }
+
+
+</script>
+
+{% endblock %}
+
+
+
+
