@@ -1,0 +1,89 @@
+ {% load static %}
+
+
+{% include 'Header/head.html' %}
+
+
+	<div class="menu-bar STBlue"  >
+
+
+			<ul>
+
+
+				<li><a href="/"><i class= "fa fa-home"></i>Home</a></li>
+
+                                <li><a href="/clients"><i class= "fa fa-users"></i>Clients</a>
+
+				{% if user.is_authenticated %}
+
+			            <li><a href="#"><i class= "fa fa-sign-out"></i>Logout</a>
+
+                                    <div class ="sub-menu-1">
+
+					<ul>
+
+						<li><form action = "{% url 'logout' %}" ><button class="btn btn-primary btn-sm bg-purple" type="submit">logout</button></form></li>
+
+
+					</ul>
+
+				  </div>
+
+				  <li><a href="/trainings"><i class="fa fa-calendar-o" aria-hidden="true" ></i>Trainings</a>
+
+                                  <li><a href="/profile"><i class= "fa fa-info-circle"></i>Profile</a>
+
+                                  
+
+                                {% else %}
+
+                   				
+
+                                   <li><a href="/registration_view"><i class="fa fa-user-plus"></i>Register</a>
+
+                                   <li><a href="{% url 'login' %}"><i class= "fa fa-sign-in"></i>Login</a>
+
+
+                                {% endif %}
+
+                                <li><a href="/contact"><i class= "fa fa-phone"></i><i class= "fa fa-fa-envelope"></i>Contact</a>
+
+                                <li><a href="#"><i class= "fa fa-tasks"></i>Our Services</a>
+
+                                
+
+				    <div class ="sub-menu-1">
+
+     
+
+			              <ul>
+
+
+						<li><form action = "/automotive" ><button class="btn btn-primary btn-sm bg-purple" type="submit"> <i class= "fa fa-car"></i>Automotive</button></form></li>
+
+
+						<li><form action = "/industryauto" ><button class="btn btn-primary btn-sm bg-purple " type="submit"><i class= "fa fa-industry"></i>Industrial Automation</button></form></li>
+
+
+						<li><form action = "/mobile" ><button class="btn btn-primary btn-sm bg-purple" type="submit"><i class= "fa fa-mobile"></i>Mobile App Dev</button></form></li>
+
+
+						<li><form action = "/website" ><button class="btn btn-primary btn-sm bg-purple" type="submit"><i class= "fa fa-window-maximize"></i>Website Design</button></form></li>
+
+
+					</ul>
+
+
+				     </div>
+
+
+                            
+
+
+
+                                
+
+                             </ul> 
+
+         </div>
+

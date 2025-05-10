@@ -1,0 +1,315 @@
+{% extends 'base.html' %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% block content %}
+
+
+<div id="pageIAHWS1">
+
+    <div class="Container-sm p-2 m-2 border bg-primary text-black">
+
+        <h3>You have selected below mentioned training</h3>
+
+        <ul>
+
+            <li>Training code: {{trgsel.Trainingcode}}</li>
+
+            <li>Training Title: {{trgsel.Trainingtitle}}</li>
+
+            <li>Training Cost: {{trgsel.Trainingcost}}</li>
+
+        </ul>
+
+
+    </div>
+
+    <div class="form_container-sm p-2 m-2 border bg-info text-black">
+
+        <h3>only for local transactions</h3>
+
+        <button type="submit" id="rzp-button1">Pay with Razorpay</button>
+
+        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+        <script>
+
+        var autocost={{trgsel.Trainingcost}};
+
+        var productid={{trgsel.id}};
+
+        var url = "{% url 'complete' %}";
+
+
+        function getCookie(name) {
+
+            let cookieValue = null;
+
+            if (document.cookie && document.cookie !== '') {
+
+                const cookies = document.cookie.split(';');
+
+                for (let i = 0; i < cookies.length; i++) {
+
+                    const cookie = cookies[i].trim();
+
+                    // Does this cookie string begin with the name we want?
+
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+
+                        break;
+
+                        }
+
+                }
+
+            }
+
+            return cookieValue;
+
+        }
+
+
+        var csrftoken = getCookie('csrftoken');
+
+        function completeOrder(){
+
+            fetch(url, {
+
+                method:'POST',
+
+                headers:{
+
+                    'Content-type':'application/json',
+
+                    'X-CSRFToken':csrftoken,
+
+                },
+
+                body:JSON.stringify({'trgselid':productid})
+
+            });
+
+
+            var options = {
+
+                "key": {{api_key}}, // Enter the Key ID generated from the Dashboard
+
+                "name": "Acme Corp",
+
+                "description": "Test Transaction",
+
+                "image": "https://example.com/your_logo",
+
+                "order_id":{{order_id}}, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+
+                "handler": function (response){
+
+                    alert(response.razorpay_payment_id);
+
+                    alert(response.razorpay_order_id);
+
+                    alert(response.razorpay_signature)
+
+                },
+
+                "prefill": {
+
+                    "name": "Gaurav Kumar",
+
+                    "email": "gaurav.kumar@example.com",
+
+                    "contact": "9999999999"
+
+                },
+
+                "notes": {
+
+                    "address": "Razorpay Corporate Office"
+
+                },
+
+                "theme": {
+
+                    "color": "#3399cc"
+
+                }
+
+            };
+
+            var rzp1 = new Razorpay(options);
+
+            rzp1.on('payment.failed', function (response){
+
+                alert(response.error.code);
+
+                alert(response.error.description);
+
+                alert(response.error.source);
+
+                alert(response.error.step);
+
+                alert(response.error.reason);
+
+                alert(response.error.metadata.order_id);
+
+                alert(response.error.metadata.payment_id);
+
+            });
+
+            document.getElementById('rzp-button1').onclick = function(e){
+
+                rzp1.open();
+
+                completeOrder();
+
+                e.preventDefault();
+
+            }
+
+
+    </script>
+
+    </div>
+
+
+    <div class="Container-sm p-2 m-2 border bg-info text-black">
+
+        <h3>only for international transactions</h3>
+
+        <div id="paypal-button-container" class="mt-4"></div>
+
+        <!-- Include the PayPal JavaScript SDK -->
+
+        <script src="https://www.paypal.com/sdk/js?client-id=AUJG2C8Kf3DXc35CBUVFpTWSIcbE_dw63IyVN6h1ASYC_Wgx0gnqY4ICFTWJgYcs0Fe2ofHr-ChN43P_&currency=USD"></script>
+
+
+        <script>
+
+        var autocost={{trgsel.Trainingcost}};
+
+        var productid={{trgsel.id}};
+
+        var url = "{% url 'complete' %}";
+
+
+        function getCookie(name) {
+
+            let cookieValue = null;
+
+            if (document.cookie && document.cookie !== '') {
+
+                const cookies = document.cookie.split(';');
+
+                for (let i = 0; i < cookies.length; i++) {
+
+                    const cookie = cookies[i].trim();
+
+                    // Does this cookie string begin with the name we want?
+
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+
+                        break;
+
+                        }
+
+                }
+
+            }
+
+            return cookieValue;
+
+        }
+
+
+        var csrftoken = getCookie('csrftoken');
+
+        function completeOrder(){
+
+            fetch(url, {
+
+                method:'POST',
+
+                headers:{
+
+                    'Content-type':'application/json',
+
+                    'X-CSRFToken':csrftoken,
+
+                },
+
+                body:JSON.stringify({'trgselid':productid})
+
+            });
+
+        }
+
+
+        // Render the PayPal button into #paypal-button-container
+
+        paypal.Buttons({
+
+        style: {
+
+            size: 'large',
+
+            color: 'gold',
+
+            shape: 'rect',
+
+            label:'pay',
+
+            height:40
+
+        },
+
+            // Set up the transaction
+
+            createOrder: function(data, actions) {
+
+                return actions.order.create({
+
+                    purchase_units: [{
+
+                        amount: {
+
+                            value: autocost
+
+                        }
+
+                    }]
+
+                });
+
+            },
+
+
+            // Finalize the transaction
+
+            onApprove: function(data, actions) {
+
+                return actions.order.capture().then(function(details) {
+
+                completeOrder();
+
+                    // Show a success message to the buyer
+
+                alert('Transaction completed by ' + details.payer.name.given_name + '!');
+
+                });
+
+            }
+
+        }).render('#paypal-button-container');
+
+        </script>
+
+    </div>
+
+</div>
+
+{% endblock %}
